@@ -50,12 +50,20 @@ const HeroSection = () => {
       img: "images/skills/js.png",
     },
     {
+      name: "api",
+      img: "images/skills/api.png",
+    },
+    {
       name: "react",
       img: "images/skills/react.png",
     },
     {
       name: "next",
       img: "images/skills/next.png",
+    },
+    {
+      name: "pwa",
+      img: "images/skills/pwa.png",
     },
     {
       name: "firebase",
@@ -108,10 +116,10 @@ const HeroSection = () => {
               data-aos="zoom-in"
               data-aos-delay={500 + i * 100}
               key={i}
-              className="bg-[var(--bg-two)] text-[var(--text)] px-4 py-2 rounded-full flex items-center justify-center gap-3"
+              className="bg-[var(--bg-two)] text-[var(--text)] px-4 py-2 max-sm:py-4 rounded-full flex items-center justify-center gap-3"
             >
               <img className="w-5 h-5" src={skill.img} alt={skill.name} />
-              <p className="font-[maven_pro] max-sm:text-sm ">{skill.name}</p>
+              <p className="font-[maven_pro] max-sm:hidden ">{skill.name}</p>
             </div>
           );
         })}
