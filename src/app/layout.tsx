@@ -15,6 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#fdb43a" />
+        <meta name="background-color" content="#fdb43a" />
+
+        <title>Loading ...</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

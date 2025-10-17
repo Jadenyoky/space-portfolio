@@ -62,16 +62,16 @@ const HeroSection = () => {
       img: "images/skills/next.png",
     },
     {
+      name: "tailwind",
+      img: "images/skills/tailwind.png",
+    },
+    {
       name: "pwa",
       img: "images/skills/pwa.png",
     },
     {
       name: "firebase",
       img: "images/skills/firebase.png",
-    },
-    {
-      name: "tailwind",
-      img: "images/skills/tailwind.png",
     },
   ];
 

@@ -10,15 +10,16 @@
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.3.1",
     "aos": "^2.3.4",
+    "lodash": "^4.17.21",
     "next": "15.5.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "typed.js": "^2.1.0",
     "typeit": "^8.8.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/aos": "^3.0.7",
+    "@types/lodash": "^4.17.20",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

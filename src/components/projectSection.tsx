@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import _ from "lodash";
 
 const ProjectSection = () => {
   const projects = [
@@ -113,6 +113,7 @@ const ProjectSection = () => {
       },
       technologies: ["next", "css-3", "pwa"],
     },
+
     {
       id: 9,
       name: "password random",
@@ -129,20 +130,6 @@ const ProjectSection = () => {
     },
     {
       id: 10,
-      name: "password random",
-      bgColor: "bg-green-500",
-      category: "Front-End",
-      shadowColor: "shadow-green-500/50",
-      description:
-        "Password generator with specific type, copy, update and saved list",
-      links: {
-        github: "https://github.com/Jadenyoky/password-random",
-        stream: "https://password-random.vercel.app",
-      },
-      technologies: ["next", "css-3", "pwa"],
-    },
-    {
-      id: 11,
       name: "challenges",
       bgColor: "bg-yellow-500",
       category: "Front-End",
@@ -156,7 +143,7 @@ const ProjectSection = () => {
       technologies: ["next", "css-3", "tailwind", "pwa"],
     },
     {
-      id: 12,
+      id: 11,
       name: "multi step form",
       bgColor: "bg-indigo-500",
       category: "Front-End",
@@ -169,8 +156,26 @@ const ProjectSection = () => {
       },
       technologies: ["next", "tailwind", "pwa"],
     },
+    {
+      id: 12,
+      name: "emo quiz",
+      bgColor: "bg-cyan-500",
+      category: "Full-Stack",
+      shadowColor: "shadow-cyan-500/50",
+      description:
+        "quiz to choose correct emotion by video with auth, database in firebase",
+      links: {
+        github: "https://github.com/Jadenyoky/emo-test",
+        stream: "https://emotest.vercel.app",
+      },
+      technologies: ["next", "tailwind", "pwa", "firebase"],
+    },
   ];
-
+  const [list, setlist] = useState([]);
+  useEffect(() => {
+    const shuffled = _.shuffle(projects);
+    setlist(shuffled as any);
+  }, []);
   return (
     <div
       id="projects"
@@ -191,7 +196,7 @@ const ProjectSection = () => {
         </p>
       </div>
       <div className="flex gap-5 flex-wrap justify-center max-md:justify-center w-full">
-        {projects.map((project, i) => {
+        {list.map((project: any, i) => {
           return (
             <div
               data-aos="zoom-in"
@@ -229,7 +234,7 @@ const ProjectSection = () => {
               </div>
               <div className="flex justify-between flex-wrap gap-4 items-center ">
                 <div className="flex gap-4">
-                  {project.technologies.map((tech, index) => (
+                  {project.technologies.map((tech: string, index: number) => (
                     <img
                       key={index}
                       src={`/images/skills/${tech}.png`}
