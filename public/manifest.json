@@ -1,11 +1,10 @@
 {
   "name": "Space Portfolio",
   "short_name": "Space Portfolio",
-  "description": "my portfolio , i collected my projects and social media and contact with me ..",
+  "description": "A front-end developer who loves creating clean, modern, and interactive websites. Explore my projects from landing pages to full web apps with Firebase integration.",
   "display": "standalone",
   "start_url": "/",
   "scope": "/",
-  "orientation": "any",
   "id": "",
   "lang": "en",
   "dir": "auto",
