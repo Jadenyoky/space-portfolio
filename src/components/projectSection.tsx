@@ -195,8 +195,8 @@ const ProjectSection = () => {
 
   const categories = [
     "all",
-    "game",
     "quran",
+    "game",
     "solution",
     "front-end",
     "full-stack",
@@ -295,7 +295,7 @@ const ProjectSection = () => {
                       ></img>
                     ))}
                   </div>
-                  <p className="font-[inconsolata] text-xs opacity-50">
+                  <p className="font-[inconsolata] text-xs opacity-50 capitalize">
                     {project.category}
                   </p>
                 </div>
