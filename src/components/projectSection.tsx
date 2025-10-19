@@ -11,7 +11,7 @@ const ProjectSection = () => {
       id: 1,
       name: "quran lite",
       bgColor: "bg-cyan-500",
-      category: "Front-End",
+      category: "quran",
       shadowColor: "shadow-cyan-500/50",
       description: "Read chapters of quran with each chapter in page manually",
       links: {
@@ -24,7 +24,7 @@ const ProjectSection = () => {
       id: 2,
       name: "to do list",
       bgColor: "bg-blue-500",
-      category: "Front-End",
+      category: "front-end",
       shadowColor: "shadow-blue-500/50",
       description: "Simple to do list with remove and saved current list",
       links: {
@@ -37,7 +37,7 @@ const ProjectSection = () => {
       id: 3,
       name: "pokemon",
       bgColor: "bg-orange-500",
-      category: "Front-End",
+      category: "front-end",
       shadowColor: "shadow-orange-500/50",
       description: "Pokemon data with describe each card",
       links: {
@@ -50,7 +50,7 @@ const ProjectSection = () => {
       id: 4,
       name: "yugioh!",
       bgColor: "bg-green-500",
-      category: "Front-End",
+      category: "front-end",
       shadowColor: "shadow-green-500/50",
       description: "Yugioh data cards with properties each card",
       links: {
@@ -63,7 +63,7 @@ const ProjectSection = () => {
       id: 5,
       name: "quran advanced",
       bgColor: "bg-black",
-      category: "Front-End",
+      category: "quran",
       shadowColor: "shadow-black/50",
       description:
         "Read, listen and search quran chapters with dynamically navigation",
@@ -77,7 +77,7 @@ const ProjectSection = () => {
       id: 6,
       name: "portfolio",
       bgColor: "bg-amber-500",
-      category: "Front-End",
+      category: "front-end",
       shadowColor: "shadow-amber-500/50",
       description: "Simple portfolio to collect some projects made by me",
       links: {
@@ -90,7 +90,7 @@ const ProjectSection = () => {
       id: 7,
       name: "tic-tac-toe game",
       bgColor: "bg-yellow-500",
-      category: "Front-End",
+      category: "game",
       shadowColor: "shadow-yellow-500/50",
       description: "Simple x-o game to play with anyone",
       links: {
@@ -103,7 +103,7 @@ const ProjectSection = () => {
       id: 8,
       name: "hint word game",
       bgColor: "bg-blue-500",
-      category: "Front-End",
+      category: "game",
       shadowColor: "shadow-blue-500/50",
       description:
         "Hint word game with different modes, categories and score for every complete word",
@@ -118,7 +118,7 @@ const ProjectSection = () => {
       id: 9,
       name: "password random",
       bgColor: "bg-green-500",
-      category: "Front-End",
+      category: "front-end",
       shadowColor: "shadow-green-500/50",
       description:
         "Password generator with specific type, copy, update and saved list",
@@ -132,7 +132,7 @@ const ProjectSection = () => {
       id: 10,
       name: "challenges",
       bgColor: "bg-yellow-500",
-      category: "Front-End",
+      category: "solution",
       shadowColor: "shadow-yellow-500/50",
       description:
         "Challenges finished code it from front-end-mentor with some details",
@@ -146,7 +146,7 @@ const ProjectSection = () => {
       id: 11,
       name: "multi step form",
       bgColor: "bg-indigo-500",
-      category: "Front-End",
+      category: "full-stack",
       shadowColor: "shadow-indigo-500/50",
       description:
         "simulate sign up , login with dynamic navigation, validation and avatar page",
@@ -160,7 +160,7 @@ const ProjectSection = () => {
       id: 12,
       name: "emo quiz",
       bgColor: "bg-cyan-500",
-      category: "Full-Stack",
+      category: "full-stack",
       shadowColor: "shadow-cyan-500/50",
       description:
         "quiz to choose correct emotion by video with auth, database in firebase",
@@ -173,9 +173,35 @@ const ProjectSection = () => {
   ];
   const [list, setlist] = useState([]);
   useEffect(() => {
-    const shuffled = _.shuffle(projects);
-    setlist(shuffled as any);
+    const order = _.orderBy(projects, ["id"], ["desc"]);
+    setlist(order as any);
   }, []);
+
+  const [selectedCategory, setselectedCategory] = useState("all");
+  const handleFilter = (query: string) => {
+    const order: any = _.orderBy(projects, ["id"], ["desc"]);
+    const filter: any = _.filter(order, {
+      category: query.toLowerCase(),
+    });
+
+    setselectedCategory(query);
+
+    if (query.toLowerCase() === "all") {
+      setlist(order);
+    } else {
+      setlist(filter);
+    }
+  };
+
+  const categories = [
+    "all",
+    "game",
+    "quran",
+    "solution",
+    "front-end",
+    "full-stack",
+  ];
+
   return (
     <div
       id="projects"
@@ -195,82 +221,108 @@ const ProjectSection = () => {
           Some of my recent works
         </p>
       </div>
-      <div className="flex gap-5 flex-wrap justify-center max-md:justify-center w-full">
-        {list.map((project: any, i) => {
-          return (
-            <div
-              data-aos="zoom-in"
-              data-aos-delay={200 + i * 100}
-              key={i}
-              className={`relative max-w-xs bg-[var(--bg-three)] rounded-lg p-4 flex flex-col gap-6 text-pretty
-              `}
-            >
-              <div
-                className={`relative aspect-video p-4 ${project.bgColor} rounded-lg overflow-hidden`}
+
+      <div className="flex flex-col gap-10">
+        <div className="flex gap-2 flex-wrap justify-center items-center max-md:justify-center w-full *:text-nowrap capitalize">
+          {categories.map((category, i) => {
+            return (
+              <button
+                key={i}
+                className={`font-[Asap] text-center px-4 py-2 rounded-lg cursor-pointer capitalize ${
+                  category.toLowerCase() === selectedCategory.toLowerCase()
+                    ? "bg-[var(--bg-three)] text-green-500 font-bold text-base"
+                    : "  text-[var(--text)] text-sm"
+                }`}
+                data-aos="zoom-out"
+                data-aos-delay={50 + i * 100}
+                onClick={() => {
+                  handleFilter(category);
+                }}
               >
-                {" "}
-                <img
-                  src={`images/projects/${project.name}/01.png`}
-                  alt={project.name}
-                  className="object-cover rounded-lg"
-                />
-                <img
-                  data-aos="fade-up"
-                  data-aos-delay={200 + i * 200}
-                  src={`images/projects/${project.name}/02.png`}
-                  alt={project.name}
-                  className={`object-cover rounded-lg absolute -bottom-14 right-4 w-1/4 shadow-2xl ${project.shadowColor}`}
-                />
-              </div>
-              <div className="flex flex-col gap-2 flex-1">
-                <div className="flex justify-between items-center">
-                  <h1 className="font-[Asap] font-bold capitalize">
-                    {project.name}
-                  </h1>
+                {category}
+              </button>
+            );
+          })}
+        </div>
+        <div
+          className="flex gap-5 flex-wrap justify-center max-md:justify-center w-full"
+          key={selectedCategory}
+        >
+          {list.map((project: any, i) => {
+            return (
+              <div
+                data-aos="zoom-in"
+                data-aos-delay={200 + i * 100}
+                key={i}
+                className={`relative max-w-xs bg-[var(--bg-three)] rounded-lg p-4 flex flex-col gap-6 text-pretty
+              `}
+              >
+                <div
+                  className={`relative aspect-video p-4 ${project.bgColor} rounded-lg overflow-hidden`}
+                >
+                  {" "}
+                  <img
+                    src={`images/projects/${project.name}/01.png`}
+                    alt={project.name}
+                    className="object-cover rounded-lg"
+                  />
+                  <img
+                    data-aos="fade-up"
+                    data-aos-delay={200 + i * 200}
+                    src={`images/projects/${project.name}/02.png`}
+                    alt={project.name}
+                    className={`object-cover rounded-lg absolute -bottom-14 right-4 w-1/4 shadow-2xl ${project.shadowColor}`}
+                  />
                 </div>
-                <p className="font-[Maven_Pro] text-sm text-[var(--text)]">
-                  {project.description}
-                </p>
-              </div>
-              <div className="flex justify-between flex-wrap gap-4 items-center ">
-                <div className="flex gap-4">
-                  {project.technologies.map((tech: string, index: number) => (
-                    <img
-                      key={index}
-                      src={`/images/skills/${tech}.png`}
-                      alt={tech}
-                      className={`fi fi-brands-${tech} w-5 h-w-5`}
-                    ></img>
-                  ))}
+                <div className="flex flex-col gap-2 flex-1">
+                  <div className="flex justify-between items-center">
+                    <h1 className="font-[Asap] font-bold capitalize">
+                      {project.name}
+                    </h1>
+                  </div>
+                  <p className="font-[Maven_Pro] text-sm text-[var(--text)]">
+                    {project.description}
+                  </p>
                 </div>
-                <p className="font-[inconsolata] text-xs opacity-50">
-                  {project.category}
-                </p>
-              </div>
+                <div className="flex justify-between flex-wrap gap-4 items-center ">
+                  <div className="flex gap-4">
+                    {project.technologies.map((tech: string, index: number) => (
+                      <img
+                        key={index}
+                        src={`/images/skills/${tech}.png`}
+                        alt={tech}
+                        className={`fi fi-brands-${tech} w-5 h-w-5`}
+                      ></img>
+                    ))}
+                  </div>
+                  <p className="font-[inconsolata] text-xs opacity-50">
+                    {project.category}
+                  </p>
+                </div>
 
-              <div className="flex flex-wrap gap-4 *:flex-1 font-[inconsolata] text-sm text-[var(--text)] *:p-2 *:bg-[var(--bg)] *:rounded-md *:cursor-pointer">
-                <Link
-                  className="flex gap-2 items-center justify-center hover:bg-cyan-500 hover:text-[var(--bg)] transition"
-                  href={project.links.github}
-                  target="_blank"
-                >
-                  <i className="fi fi-brands-github translate-y-0.5"></i>
-                  <span>github</span>
-                </Link>
-                <Link
-                  className="flex gap-2 items-center justify-center hover:bg-green-500 hover:text-[var(--bg)] transition"
-                  href={project.links.stream}
-                  target="_blank"
-                >
-                  <i className="fi fi-sr-signal-stream translate-y-0.5"></i>
-                  <span>stream</span>
-                </Link>
+                <div className="flex flex-wrap gap-4 *:flex-1 font-[inconsolata] text-sm text-[var(--text)] *:p-2 *:bg-[var(--bg)] *:rounded-md *:cursor-pointer">
+                  <Link
+                    className="flex gap-2 items-center justify-center hover:bg-cyan-500 hover:text-[var(--bg)] transition"
+                    href={project.links.github}
+                    target="_blank"
+                  >
+                    <i className="fi fi-brands-github translate-y-0.5"></i>
+                    <span>github</span>
+                  </Link>
+                  <Link
+                    className="flex gap-2 items-center justify-center hover:bg-green-500 hover:text-[var(--bg)] transition"
+                    href={project.links.stream}
+                    target="_blank"
+                  >
+                    <i className="fi fi-sr-signal-stream translate-y-0.5"></i>
+                    <span>stream</span>
+                  </Link>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-
       <div
         className="text-[var(--text)] w-10 h-10 rounded-full flex items-center justify-center opacity-0
         animate-[waveOne_2s_ease-in-out_infinite_2s]

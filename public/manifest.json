@@ -1,6 +1,6 @@
 {
   "name": "Space Portfolio",
-  "short_name": "Space Portfolio",
+  "short_name": "Space",
   "description": "A front-end developer who loves creating clean, modern, and interactive websites. Explore my projects from landing pages to full web apps with Firebase integration.",
   "display": "standalone",
   "start_url": "/",
