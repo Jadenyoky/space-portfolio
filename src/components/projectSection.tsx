@@ -16,7 +16,7 @@ const ProjectSection = () => {
       description: "Read chapters of quran with each chapter in page manually",
       links: {
         github: "https://github.com/Jadenyoky/quran-react",
-        stream: "https://quran-114.web.app",
+        stream: "https://quran-114.vercel.app",
       },
       technologies: ["react", "css-3", "pwa"],
     },
@@ -29,7 +29,7 @@ const ProjectSection = () => {
       description: "Simple to do list with remove and saved current list",
       links: {
         github: "https://github.com/Jadenyoky/to-do-list",
-        stream: "https://todolist44024.web.app",
+        stream: "https://to-do-list-eight-tau-53.vercel.app",
       },
       technologies: ["react", "css-3", "pwa"],
     },
@@ -42,7 +42,7 @@ const ProjectSection = () => {
       description: "Pokemon data with describe each card",
       links: {
         github: "https://github.com/Jadenyoky/pokemon-api",
-        stream: "https://poke-242.web.app",
+        stream: "https://pokemon-api-jet-sigma.vercel.app",
       },
       technologies: ["react", "css-3", "api", "pwa"],
     },
@@ -55,7 +55,7 @@ const ProjectSection = () => {
       description: "Yugioh data cards with properties each card",
       links: {
         github: "https://github.com/Jadenyoky/yugi-api",
-        stream: "https://yugi-0.web.app",
+        stream: "https://yugi-api.vercel.app",
       },
       technologies: ["react", "css-3", "api", "pwa"],
     },
@@ -69,7 +69,7 @@ const ProjectSection = () => {
         "Read, listen and search quran chapters with dynamically navigation",
       links: {
         github: "https://github.com/Jadenyoky/quran-api",
-        stream: "https://quran-04.web.app",
+        stream: "https://quran-04.vercel.app",
       },
       technologies: ["react", "css-3", "api", "pwa"],
     },
@@ -82,7 +82,7 @@ const ProjectSection = () => {
       description: "Simple portfolio to collect some projects made by me",
       links: {
         github: "https://github.com/Jadenyoky/my-portfolio",
-        stream: "https://portfolio-40.web.app",
+        stream: "https://my-portfolio-eosin-chi-51.vercel.app",
       },
       technologies: ["react", "css-3", "pwa"],
     },
