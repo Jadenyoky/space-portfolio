@@ -54,7 +54,7 @@ const ServiceSection = () => {
               data-aos="fade-up"
               data-aos-delay={200 + i * 100}
               key={i}
-              className={`relative flex-1 border ${service.borderColor} rounded-lg shadow-2xl px-8 py-6 flex flex-col gap-6 text-pretty max-md:items-center max-md:text-center`}
+              className={`bg-[var(--bg-three)] relative flex-1 border ${service.borderColor} rounded-lg shadow-2xl px-8 py-6 flex flex-col gap-6 text-pretty max-md:items-center max-md:text-center`}
             >
               <img
                 src={service.image}
