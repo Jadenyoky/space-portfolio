@@ -47,7 +47,7 @@ const ServiceSection = () => {
           What I can do for you
         </p>
       </div>
-      <div className="flex flex-row flex-wrap max-md:flex-col gap-4">
+      <div className="flex flex-row flex-wrap max-md:flex-col gap-5">
         {services.map((service, i) => {
           return (
             <div
