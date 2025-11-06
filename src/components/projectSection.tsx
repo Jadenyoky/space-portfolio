@@ -230,7 +230,7 @@ const ProjectSection = () => {
                 key={i}
                 className={`font-[Asap] text-center px-4 py-2 rounded-lg cursor-pointer capitalize ${
                   category.toLowerCase() === selectedCategory.toLowerCase()
-                    ? "bg-[var(--bg-three)] text-[#ffc461] font-bold text-base"
+                    ? "bg-[var(--bg-three)] text-[var(--second)] font-bold text-base"
                     : "  text-[var(--text)] text-sm"
                 }`}
                 data-aos="zoom-out"

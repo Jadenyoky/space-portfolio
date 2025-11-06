@@ -10,6 +10,7 @@ Fonts | Asap - Maven_Pro - Inconsolata
 */
 
 :root {
+  --second: #ffc461;
   --bg: #16181D;
   --bg-two: #292C34;
   --bg-three: #292c34ab;
@@ -59,7 +60,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffc461;
+  background-color: var(--second);
 }
 
 @keyframes waveOne {
