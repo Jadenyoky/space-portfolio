@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import TypeIt from "typeit";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import LogoLoop from "./LogoLoop";
 
 const HeroSection = () => {
   const [showStars, setShowStars] = useState(false);
@@ -75,10 +76,49 @@ const HeroSection = () => {
     },
   ];
 
+  const skills2 = [
+    {
+      alt: "html",
+      src: "images/skills/html-5.png",
+    },
+    {
+      alt: "css",
+      src: "images/skills/css-3.png",
+    },
+    {
+      alt: "javascript",
+      src: "images/skills/js.png",
+    },
+    {
+      alt: "api",
+      src: "images/skills/api.png",
+    },
+    {
+      alt: "react",
+      src: "images/skills/react.png",
+    },
+    {
+      alt: "next",
+      src: "images/skills/next.png",
+    },
+    {
+      alt: "tailwind",
+      src: "images/skills/tailwind.png",
+    },
+    {
+      alt: "pwa",
+      src: "images/skills/pwa.png",
+    },
+    {
+      alt: "firebase",
+      src: "images/skills/firebase.png",
+    },
+  ];
+
   return (
     <div
       id="hero"
-      className="relative min-h-svh w-full bg-cover bg-no-repeat bg-center flex flex-col gap-5 items-center justify-evenly p-10"
+      className="relative min-h-svh w-full bg-cover bg-no-repeat bg-center flex flex-col gap-5 items-center justify-evenly p-10 max-md:p-0"
       style={{ backgroundImage: "url('images/bg_intro.png')" }}
     >
       <div className="relative ">
@@ -109,8 +149,8 @@ const HeroSection = () => {
         ></div>
       </div>
 
-      <div className="flex gap-5 flex-wrap justify-center uppercase">
-        {skills.map((skill, i) => {
+      <div className="flex gap-5 flex-wrap justify-center uppercase w-full ">
+        {/* {skills.map((skill, i) => {
           return (
             <div
               data-aos="zoom-in"
@@ -122,7 +162,19 @@ const HeroSection = () => {
               <p className="font-[maven_pro] max-sm:hidden ">{skill.name}</p>
             </div>
           );
-        })}
+        })} */}
+        <LogoLoop
+          logos={skills2}
+          speed={40}
+          direction="left"
+          logoHeight={40}
+          gap={40}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          fadeOutColor={`var(--bg)`}
+          ariaLabel="Technology partners"
+        />
       </div>
 
       <div
