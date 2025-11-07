@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import _ from "lodash";
+import Stars from "./stars";
 
 const HeroSection = () => {
   const [showStars, setShowStars] = useState(false);
@@ -102,10 +103,10 @@ const HeroSection = () => {
       .type(`<span style="color:var(--cyan);">Back-End Developer </span>`)
       .pause(3000)
       .delete()
-      .type(`<span style="color:var(--text);">UX/UI Designer </span>`)
+      .type(`<span style="color:var(--green);">UX/UI Designer </span>`)
       .pause(3000)
       .delete()
-      .type(`<span style="color:var(--green);">Graphic Designer </span>`)
+      .type(`<span style="color:var(--text);">Graphic Designer </span>`)
       .pause(3000)
       .go();
 
@@ -144,7 +145,12 @@ const HeroSection = () => {
         <div className="hidden max-md:flex">
           <Popover>
             <PopoverTrigger asChild>
-              <div data-aos="zoom-in" data-aos-delay={500 + i * 100} key={i}>
+              <div
+                data-aos="zoom-in"
+                data-aos-delay={500 + i * 100}
+                key={i}
+                className="cursor-pointer"
+              >
                 <img
                   className="w-12 max-sm:w-10"
                   src={skill.img}
@@ -201,7 +207,7 @@ const HeroSection = () => {
         ></div>
       </div>
 
-      <div className="flex gap-5 flex-wrap justify-center uppercase w-full">
+      <div className="flex gap-5 flex-wrap justify-center uppercase w-full min-h-24">
         <LogoLoop
           logos={skillsComponent}
           speed={40}
@@ -229,25 +235,9 @@ const HeroSection = () => {
         <i className="fi fi-br-angle-right text-2xl rotate-90"></i>
       </div>
 
-      {showStars && (
-        <div className="fixed inset-0 pointer-events-none">
-          {[...Array(50)].map((item, i) => (
-            <span
-              data-aos="fade"
-              data-aos-delay={1000 + i * 200}
-              key={i}
-              className="absolute bg-[var(--text)] rounded-full opacity-20 animate-twinkle"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                width: `${Math.random() * 2 + 2}px`,
-                height: `${Math.random() * 2 + 1}px`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
-            ></span>
-          ))}
-        </div>
-      )}
+      {/* {showStars && (
+        <Stars />
+      )} */}
     </div>
   );
 };

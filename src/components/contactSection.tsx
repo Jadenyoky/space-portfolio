@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
+import Stars from "./stars";
 
 const ContactSection = () => {
   const [showStars, setShowStars] = useState(false);
@@ -98,26 +99,7 @@ const ContactSection = () => {
       >
         <i className="fi fi-br-angle-right text-2xl -rotate-90"></i>
       </div>
-
-      {showStars && (
-        <div className="fixed inset-0 pointer-events-none">
-          {[...Array(50)].map((item, i) => (
-            <span
-              data-aos="fade"
-              data-aos-delay={1000 + i * 200}
-              key={i}
-              className="absolute bg-[var(--text)] rounded-full opacity-20 animate-twinkle"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                width: `${Math.random() * 2 + 2}px`,
-                height: `${Math.random() * 2 + 1}px`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
-            ></span>
-          ))}
-        </div>
-      )}
+      {showStars && <Stars />}
     </div>
   );
 };

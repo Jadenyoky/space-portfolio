@@ -170,6 +170,20 @@ const ProjectSection = () => {
       },
       technologies: ["next", "tailwind", "pwa", "firebase"],
     },
+    {
+      id: 13,
+      name: "palette",
+      bgColor: "bg-[var(--coral)]",
+      category: "full-stack",
+      shadowColor: "shadow-ambeer-500/50",
+      description:
+        "quiz to choose correct emotion by video with auth, database in firebase",
+      links: {
+        github: "https://github.com/Jadenyoky/palette",
+        stream: "https://palette-ruddy.vercel.app",
+      },
+      technologies: ["next", "tailwind", "pwa", "ts"],
+    },
   ];
   const [list, setlist] = useState([]);
   useEffect(() => {
