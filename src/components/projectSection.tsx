@@ -10,7 +10,7 @@ const ProjectSection = () => {
     {
       id: 1,
       name: "quran lite",
-      bgColor: "bg-cyan-500",
+      bgColor: "bg-[var(--cyan)]",
       category: "quran",
       shadowColor: "shadow-cyan-500/50",
       description: "Read chapters of quran with each chapter in page manually",
@@ -49,7 +49,7 @@ const ProjectSection = () => {
     {
       id: 4,
       name: "yugioh!",
-      bgColor: "bg-green-500",
+      bgColor: "bg-[var(--green)]",
       category: "front-end",
       shadowColor: "shadow-green-500/50",
       description: "Yugioh data cards with properties each card",
@@ -76,7 +76,7 @@ const ProjectSection = () => {
     {
       id: 6,
       name: "portfolio",
-      bgColor: "bg-amber-500",
+      bgColor: "bg-[var(--coral)]",
       category: "front-end",
       shadowColor: "shadow-amber-500/50",
       description: "Simple portfolio to collect some projects made by me",
@@ -117,7 +117,7 @@ const ProjectSection = () => {
     {
       id: 9,
       name: "password random",
-      bgColor: "bg-green-500",
+      bgColor: "bg-[var(--green)]",
       category: "front-end",
       shadowColor: "shadow-green-500/50",
       description:
@@ -159,7 +159,7 @@ const ProjectSection = () => {
     {
       id: 12,
       name: "emo quiz",
-      bgColor: "bg-cyan-500",
+      bgColor: "bg-[var(--cyan)]",
       category: "full-stack",
       shadowColor: "shadow-cyan-500/50",
       description:
@@ -209,7 +209,7 @@ const ProjectSection = () => {
     >
       <div className="flex flex-col gap-4">
         <h1
-          className="font-[Inconsolata] text-4xl font-bold text-center text-cyan-500"
+          className="font-[Inconsolata] text-4xl font-bold text-center text-[var(--cyan)]"
           data-aos="fade-down"
         >
           Projects
@@ -230,7 +230,7 @@ const ProjectSection = () => {
                 key={i}
                 className={`font-[Asap] text-center px-4 py-2 rounded-lg cursor-pointer capitalize ${
                   category.toLowerCase() === selectedCategory.toLowerCase()
-                    ? "bg-[var(--bg-three)] text-[var(--second)] font-bold text-base"
+                    ? "bg-[var(--bg-three)] text-[var(--coral)] font-bold text-base"
                     : "  text-[var(--text)] text-sm"
                 }`}
                 data-aos="zoom-out"
@@ -302,7 +302,7 @@ const ProjectSection = () => {
 
                 <div className="flex flex-wrap gap-4 *:flex-1 font-[inconsolata] text-sm text-[var(--text)] *:p-2 *:bg-[var(--bg)] *:rounded-md *:cursor-pointer">
                   <Link
-                    className="flex gap-2 items-center justify-center hover:bg-cyan-500 hover:text-[var(--bg)] transition"
+                    className="flex gap-2 items-center justify-center hover:bg-[var(--cyan)] hover:text-[var(--bg)] transition"
                     href={project.links.github}
                     target="_blank"
                   >
@@ -310,7 +310,7 @@ const ProjectSection = () => {
                     <span>github</span>
                   </Link>
                   <Link
-                    className="flex gap-2 items-center justify-center hover:bg-green-500 hover:text-[var(--bg)] transition"
+                    className="flex gap-2 items-center justify-center hover:bg-[var(--green)] hover:text-[var(--bg)] transition"
                     href={project.links.stream}
                     target="_blank"
                   >
@@ -326,7 +326,7 @@ const ProjectSection = () => {
       <div
         className="text-[var(--text)] w-10 h-10 rounded-full flex items-center justify-center opacity-0
         animate-[waveOne_2s_ease-in-out_infinite_2s]
-        cursor-pointer hover:text-green-500
+        cursor-pointer hover:text-[var(--green)]
         "
         onClick={() => {
           const contactSection = document.getElementById("contact");

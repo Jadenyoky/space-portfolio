@@ -96,16 +96,16 @@ const HeroSection = () => {
       loop: true,
       cursorChar: "_",
     })
-      .type("Front-End Developer ")
+      .type(`<span style="color:var(--coral);">Front-End Developer </span>`)
       .pause(3000)
       .delete()
-      .type("Back-End Developer ")
+      .type(`<span style="color:var(--cyan);">Back-End Developer </span>`)
       .pause(3000)
       .delete()
-      .type("UX/UI Designer ")
+      .type(`<span style="color:var(--text);">UX/UI Designer </span>`)
       .pause(3000)
       .delete()
-      .type("Graphic Designer ")
+      .type(`<span style="color:var(--green);">Graphic Designer </span>`)
       .pause(3000)
       .go();
 
@@ -122,9 +122,14 @@ const HeroSection = () => {
         <div className="flex max-md:hidden">
           <Tooltip>
             <TooltipTrigger asChild>
-              <div data-aos="zoom-in" data-aos-delay={500 + i * 100} key={i}>
+              <div
+                data-aos="zoom-in"
+                data-aos-delay={500 + i * 100}
+                key={i}
+                className="cursor-pointer"
+              >
                 <img
-                  className="w-12 max-sm:w-10"
+                  className="w-12 max-sm:w-10 opacity-50 hover:opacity-100"
                   src={skill.img}
                   alt={skill.name}
                 />
@@ -168,7 +173,7 @@ const HeroSection = () => {
       style={{ backgroundImage: "url('images/bg_intro.png')" }}
     >
       <div className="relative ">
-        <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-green-500">
+        <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-[var(--green)]">
           <img
             className="object-cover rounded-full"
             src="images/avatar.jpg"
@@ -176,7 +181,7 @@ const HeroSection = () => {
           />
         </div>
         <div
-          className="absolute bottom-0 right-0 text-3xl text-[var(--bg)] bg-green-500 rounded-full flex items-center justify-center rotate-110"
+          className="absolute bottom-0 right-0 text-3xl text-[var(--bg)] bg-[var(--green)] rounded-full flex items-center justify-center rotate-110"
           data-aos="zoom-in"
         >
           <i className="fi fi-sr-comment-code -m-[0.5px]"></i>
@@ -186,12 +191,13 @@ const HeroSection = () => {
       <div className="flex flex-col items-center gap-8 text-center">
         <p className=" text-white/70 font-[Inconsolata] tracking-wider">
           Hello World! <br /> My name is{" "}
-          <span className="text-green-500 font-bold">Ahmed Hussien</span> & I am
+          <span className="text-[var(--green)] font-bold">Ahmed Hussien</span> &
+          I am
         </p>
         <div
           id="title"
           ref={element}
-          className="min-h-[60px] font-[Asap] text-5xl max-sm:text-2xl font-bold text-[var(--second)]"
+          className="min-h-[60px] font-[Asap] text-5xl max-sm:text-2xl font-bold text-[var(--coral)]"
         ></div>
       </div>
 
@@ -213,7 +219,7 @@ const HeroSection = () => {
       <div
         className="text-[var(--text)] w-10 h-10 rounded-full flex items-center justify-center opacity-0
         animate-[waveOne_2s_ease-in-out_infinite_2s]
-        cursor-pointer hover:text-green-500
+        cursor-pointer hover:text-[var(--green)]
         "
         onClick={() => {
           const servicesSection = document.getElementById("services");

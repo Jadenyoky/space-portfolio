@@ -49,7 +49,7 @@ const ContactSection = () => {
     >
       <div className="flex flex-col gap-4">
         <h1
-          className="font-[Inconsolata] text-4xl font-bold text-center text-green-500"
+          className="font-[Inconsolata] text-4xl font-bold text-center text-[var(--green)]"
           data-aos="fade-down"
         >
           Contact
@@ -89,7 +89,7 @@ const ContactSection = () => {
       <div
         className="text-[var(--text)] w-10 h-10 rounded-full flex items-center justify-center opacity-0
         animate-[waveOne_2s_ease-in-out_infinite_2s]
-        cursor-pointer hover:text-green-500
+        cursor-pointer hover:text-[var(--green)]
         "
         onClick={() => {
           const heroSection = document.getElementById("hero");

@@ -10,11 +10,14 @@ Fonts | Asap - Maven_Pro - Inconsolata
 */
 
 :root {
-  --second: #ffc461;
   --bg: #16181D;
   --bg-two: #292C34;
   --bg-three: #292c34ab;
   --text: #C0C4CE;
+  --coral: #ffc461;
+  --green: #00c951;
+  --cyan: #00B8DB;
+  /* shadcn variables */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -60,7 +63,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--second);
+  background-color: var(--coral);
 }
 
 @keyframes waveOne {
