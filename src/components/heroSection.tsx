@@ -4,10 +4,86 @@ import TypeIt from "typeit";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import LogoLoop from "./LogoLoop";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import _ from "lodash";
 
 const HeroSection = () => {
   const [showStars, setShowStars] = useState(false);
+  const [skills, setskills] = useState<any>([]);
   const element = useRef(null) as any;
+  const skillsArray = [
+    {
+      name: "html",
+      img: "images/skills/html-5.png",
+    },
+    {
+      name: "css",
+      img: "images/skills/css-3.png",
+    },
+    {
+      name: "javascript",
+      img: "images/skills/js.png",
+    },
+    {
+      name: "typescript",
+      img: "images/skills/ts.png",
+    },
+    {
+      name: "api",
+      img: "images/skills/api.png",
+    },
+    {
+      name: "react",
+      img: "images/skills/react.png",
+    },
+    {
+      name: "next",
+      img: "images/skills/next.png",
+    },
+    {
+      name: "tailwind",
+      img: "images/skills/tailwind.png",
+    },
+    {
+      name: "pwa",
+      img: "images/skills/pwa.png",
+    },
+    {
+      name: "firebase",
+      img: "images/skills/firebase.png",
+    },
+    {
+      name: "gsap",
+      img: "images/skills/gsap.png",
+    },
+    {
+      name: "framer motion",
+      img: "images/skills/framer-motion.png",
+    },
+    {
+      name: "vercel",
+      img: "images/skills/vercel.png",
+    },
+    {
+      name: "figma",
+      img: "images/skills/figma.png",
+    },
+    {
+      name: "canva",
+      img: "images/skills/canva.png",
+    },
+  ];
+
+  const handleShuffle = () => {
+    const shuffle = _.shuffle(skillsArray);
+    setskills(shuffle);
+  };
+
   useEffect(() => {
     Aos.init({
       once: true,
@@ -34,91 +110,61 @@ const HeroSection = () => {
       .go();
 
     setShowStars(true);
+
+    handleShuffle();
+
     return () => typing.destroy();
   }, []);
 
-  const skills = [
-    {
-      name: "html",
-      img: "images/skills/html-5.png",
-    },
-    {
-      name: "css",
-      img: "images/skills/css-3.png",
-    },
-    {
-      name: "javascript",
-      img: "images/skills/js.png",
-    },
-    {
-      name: "api",
-      img: "images/skills/api.png",
-    },
-    {
-      name: "react",
-      img: "images/skills/react.png",
-    },
-    {
-      name: "next",
-      img: "images/skills/next.png",
-    },
-    {
-      name: "tailwind",
-      img: "images/skills/tailwind.png",
-    },
-    {
-      name: "pwa",
-      img: "images/skills/pwa.png",
-    },
-    {
-      name: "firebase",
-      img: "images/skills/firebase.png",
-    },
-  ];
+  const skillsComponent = skills.map((skill: any, i: number) => ({
+    node: (
+      <div>
+        <div className="flex max-md:hidden">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div data-aos="zoom-in" data-aos-delay={500 + i * 100} key={i}>
+                <img
+                  className="w-12 max-sm:w-10"
+                  src={skill.img}
+                  alt={skill.name}
+                />
+              </div>
+            </TooltipTrigger>
 
-  const skills2 = [
-    {
-      alt: "html",
-      src: "images/skills/html-5.png",
-    },
-    {
-      alt: "css",
-      src: "images/skills/css-3.png",
-    },
-    {
-      alt: "javascript",
-      src: "images/skills/js.png",
-    },
-    {
-      alt: "api",
-      src: "images/skills/api.png",
-    },
-    {
-      alt: "react",
-      src: "images/skills/react.png",
-    },
-    {
-      alt: "next",
-      src: "images/skills/next.png",
-    },
-    {
-      alt: "tailwind",
-      src: "images/skills/tailwind.png",
-    },
-    {
-      alt: "pwa",
-      src: "images/skills/pwa.png",
-    },
-    {
-      alt: "firebase",
-      src: "images/skills/firebase.png",
-    },
-  ];
+            <TooltipContent side="top" className="max-md:hidden">
+              <p className="capitalize">{skill.name}</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+        <div className="hidden max-md:flex">
+          <Popover>
+            <PopoverTrigger asChild>
+              <div data-aos="zoom-in" data-aos-delay={500 + i * 100} key={i}>
+                <img
+                  className="w-12 max-sm:w-10"
+                  src={skill.img}
+                  alt={skill.name}
+                />
+              </div>
+            </PopoverTrigger>
+
+            <PopoverContent
+              side="top"
+              className="max-md:flex w-fit h-2 bg-black border-0 text-white justify-center items-center text-xs"
+              sideOffset={14}
+            >
+              <p className="capitalize">{skill.name}</p>
+            </PopoverContent>
+          </Popover>
+        </div>
+      </div>
+    ),
+  }));
 
   return (
     <div
       id="hero"
-      className="relative min-h-svh w-full bg-cover bg-no-repeat bg-center flex flex-col gap-5 items-center justify-evenly p-10 max-md:p-0"
+      className="relative min-h-svh w-full bg-cover bg-no-repeat bg-center flex flex-col gap-5 items-center justify-evenly max-md:p-0"
       style={{ backgroundImage: "url('images/bg_intro.png')" }}
     >
       <div className="relative ">
@@ -145,29 +191,16 @@ const HeroSection = () => {
         <div
           id="title"
           ref={element}
-          className="min-h-[60px] font-[Asap] text-5xl max-sm:text-2xl font-bold text-green-500"
+          className="min-h-[60px] font-[Asap] text-5xl max-sm:text-2xl font-bold text-[var(--second)]"
         ></div>
       </div>
 
-      <div className="flex gap-5 flex-wrap justify-center uppercase w-full ">
-        {/* {skills.map((skill, i) => {
-          return (
-            <div
-              data-aos="zoom-in"
-              data-aos-delay={500 + i * 100}
-              key={i}
-              className="bg-[var(--bg-two)] text-[var(--text)] px-4 py-2 max-sm:py-4 rounded-full flex items-center justify-center gap-3"
-            >
-              <img className="w-5 h-5" src={skill.img} alt={skill.name} />
-              <p className="font-[maven_pro] max-sm:hidden ">{skill.name}</p>
-            </div>
-          );
-        })} */}
+      <div className="flex gap-5 flex-wrap justify-center uppercase w-full">
         <LogoLoop
-          logos={skills2}
+          logos={skillsComponent}
           speed={40}
           direction="left"
-          logoHeight={40}
+          logoHeight={70}
           gap={40}
           pauseOnHover
           scaleOnHover
