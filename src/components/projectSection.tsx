@@ -177,7 +177,7 @@ const ProjectSection = () => {
       category: "full-stack",
       shadowColor: "shadow-ambeer-500/50",
       description:
-        "quiz to choose correct emotion by video with auth, database in firebase",
+        "Extract colors from any images and unable store it with fav colors",
       links: {
         github: "https://github.com/Jadenyoky/palette",
         stream: "https://palette-ruddy.vercel.app",
